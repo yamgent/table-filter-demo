@@ -19,7 +19,7 @@ interface ReturnValue<T> {
 
 export default function useMultipleFilter<T>({
   dataIndex,
-  filterEntries
+  filterEntries,
 }: Props): ReturnValue<T> {
   const [filter, setFilter] = React.useState<React.ReactText[]>();
 
@@ -46,7 +46,7 @@ export default function useMultipleFilter<T>({
       filters: filterEntries ? getFilters(filterEntries) : undefined,
       filtered: !!filter,
       filteredValue: filter || [],
-      onFilter: (value: string, data: T) => data[dataIndex] === value
-    }
+      onFilter: (value: string, data: any) => data[dataIndex] === value,
+    },
   };
 }

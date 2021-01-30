@@ -31,7 +31,7 @@ export default function useSearchFilter<T>({
     setFilter
   } = useSingleFilter<T>({ dataIndex });
 
-  const inputRef = React.useRef<Input>();
+  const inputRef = React.useRef<Input>(null);
 
   const handleSearch = React.useCallback(
     (selectedKeys: React.ReactText[], confirm: () => void): void => {
@@ -97,7 +97,7 @@ export default function useSearchFilter<T>({
           style={{ color: filtered ? "#1890ff" : undefined }}
         />
       ),
-      onFilter: (value, record) =>
+      onFilter: (value, record: any) =>
         !value ||
         record[dataIndex]
           .toString()
@@ -111,7 +111,7 @@ export default function useSearchFilter<T>({
       render: (text) =>
         filter ? (
           <Highlighter
-            searchWords={[filter]}
+            searchWords={[filter.toString()]}
             autoEscape
             textToHighlight={text.toString()}
           />

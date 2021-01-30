@@ -18,7 +18,7 @@ export function sortByString<T>(
   sortInfo?: SorterResult<T>
 ): ColumnProps<T> {
   return {
-    sorter: (a: T, b: T) => a[dataIndex]?.localeCompare(b[dataIndex]),
+    sorter: (a: any, b: any) => a[dataIndex]?.localeCompare(b[dataIndex]),
     sortOrder: sortInfo?.columnKey === dataIndex && sortInfo.order
   };
 }
@@ -28,7 +28,7 @@ export function sortByNumber<T>(
   sortInfo?: SorterResult<T>
 ): ColumnProps<T> {
   return {
-    sorter: (a: T, b: T) => a[dataIndex] - b[dataIndex],
+    sorter: (a: any, b: any) => a[dataIndex] - b[dataIndex],
     sortOrder: sortInfo?.columnKey === dataIndex && sortInfo.order
   };
 }

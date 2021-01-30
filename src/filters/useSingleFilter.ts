@@ -19,7 +19,7 @@ interface ReturnValue<T> {
 
 export default function useSingleFilter<T>({
   dataIndex,
-  filterEntries
+  filterEntries,
 }: Props): ReturnValue<T> {
   const [filter, setFilter] = React.useState<React.ReactText>();
 
@@ -47,7 +47,7 @@ export default function useSingleFilter<T>({
       filterMultiple: false,
       filtered: !!filter,
       filteredValue: filter ? [filter] : [],
-      onFilter: (value: string, data: T) => data[dataIndex] === value
-    }
+      onFilter: (value: string, data: any) => data[dataIndex] === value,
+    },
   };
 }
